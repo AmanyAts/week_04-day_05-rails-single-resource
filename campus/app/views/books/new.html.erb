@@ -1,0 +1,7 @@
+
+<h1>Add Your book</h1>
+<%= form_for @book, url: {action: "create"} do |f| %>
+    <%= f.text_field :title %>
+    
+    <%= f.submit :"save" %>
+<% end %>

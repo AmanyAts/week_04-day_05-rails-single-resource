@@ -1,0 +1,8 @@
+<h1>update</h1>
+<%= form_for @patient, url: {action: "update"} do |f| %>
+    <p>First name: <%= f.text_field :first_name %></p>
+   <p> Last name: <%= f.text_field :last_name %></p>
+   <p> Date: <%= f.date_field :date %></p>
+   <p> diagnosis: <%= f.text_field :diagnosis %></p>
+    <%= f.submit :"save" %>
+<% end %>

@@ -1,0 +1,12 @@
+<%=link_to "Back",patients_path()%>
+<h3>
+         
+       <p>First name: <%= @patient.first_name %> </p>
+      <p> last name: <%= @patient.last_name %> </p>
+      <p> date: <%= @patient.date %> </p>
+      <p> diagnosis: <%= @patient.diagnosis %> </p>
+        
+        
+    </h3>
+    <%= link_to 'Edit', edit_patient_path(@patient) %>
+    <%= link_to 'Delete', patient_path(@patient), method: :delete %>

@@ -1,0 +1,11 @@
+<h1> Books List</h1>
+<h2><%= link_to 'Create a book', new_book_path %></h2>
+# <!--books it represent the value that we created in controller-->
+<% @books.each do |book|%>
+<h3>
+     
+    <%= link_to book.title, book_path(book) %> 
+</h3>
+
+
+<% end %>
