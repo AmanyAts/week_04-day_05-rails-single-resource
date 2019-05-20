@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'pages#home'
+  root 'pages#home'
 
   
   # get "/authors", to:"authors#index", as:"authors"
@@ -24,12 +24,14 @@ end
   # patch '/books/:id' ,to:"books#update"
 
   #Patients
-  get "/patients", to:"patients#index" , as:"patients"
-  get "/patients/new", to:"patients#new", as:"new_patient"
-  get '/patients/:id/edit',to: 'patients#edit', as:"edit_patient" 
-  get "/patients/:id", to:"patients#show", as:"patient"
-  delete "/patients/:id" , to: "patients#destroy" #
-  post "/patients", to: "patients#create"
-  patch '/patients/:id' ,to:"patients#update"
-
+  # get "/patients", to:"patients#index" , as:"patients"
+  # get "/patients/new", to:"patients#new", as:"new_patient"
+  # get '/patients/:id/edit',to: 'patients#edit', as:"edit_patient" 
+  # get "/patients/:id", to:"patients#show", as:"patient"
+  # delete "/patients/:id" , to: "patients#destroy" #
+  # post "/patients", to: "patients#create"
+  # patch '/patients/:id' ,to:"patients#update"
+  resources :doctors do
+  resources :patients
+  end
 end

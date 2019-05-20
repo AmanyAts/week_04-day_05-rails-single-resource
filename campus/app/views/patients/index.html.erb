@@ -1,14 +1,15 @@
-<h1>Hello World</h1>
+<%=link_to "Back",doctor_path(@doctor)%>
+
+<h1><%=@doctor.name %>'s patients</h1>
 <% @patients.each do |patient|%>
-    <h3>
-         
-        
-        <%= link_to "#{patient.first_name} #{patient.last_name} ", patient_path(patient)%> 
-        
+    
+<ul>
+      <li> <h3> <%= link_to "#{patient.first_name} #{patient.last_name} ", doctor_patient_path(@doctor,patient)%></p> </li>
+        </ul>
 
         
-    </h3>
+    
         
     <% end %>
 
-    <%= link_to 'add new one', new_patient_path %>
+    <%= link_to 'add new one', new_doctor_patient_path %>

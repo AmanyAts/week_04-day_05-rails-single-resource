@@ -1,0 +1,9 @@
+<h1>insert the doctor information</h1>
+<%= form_for @doctor, url: {action: "update"} do |f| %>
+    <p> name: <%= f.text_field :name %></p>
+ 
+   <p> location: <%= f.date_field :location %></p>
+   <p> specialty: <%= f.text_field :specialty %></p>
+    <%= f.submit :"save" %>
+
+<% end %>

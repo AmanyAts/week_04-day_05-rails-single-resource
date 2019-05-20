@@ -1,42 +1,52 @@
 class PatientsController < ApplicationController
     def index
-        @patients= Patient.all
+        @doctor =Doctor.find(params[:doctor_id])
+        @patients= @doctor.patients
     end
     def show 
-        @patient = Patient.find(params[:id]) #params is key word id=1
+        @doctor =Doctor.find(params[:doctor_id])
+        @patient = @doctor.patients.find(params[:id]) #params is key word id=1
     end
 
     def destroy
-        @patient = Patient.find(params[:id])
+        @doctor =Doctor.find(params[:doctor_id])
+        @patient = @doctor.patients.find(params[:id])
         @patient.destroy
-        redirect_to patients_path
+        redirect_to doctor_patients_path(@doctor)
     end
 
     def new 
-        @patient = Patient.new
+        @doctor =Doctor.find(params[:doctor_id])
+        @patient = @doctor.patients.new
     end
 
     def create
-        @patient= Patient.create(patient_params)
-        if @patient.save
-            redirect_to patient_path(@patient)
-          else
-            render 'new'
-          end
+        @doctor =Doctor.find(params[:doctor_id])
+        @patient= @doctor.patients.create(patient_params)
+        @patient.save
+        redirect_to doctor_patient_path(@doctor, @patient)
+        # redirect_to doctor_patient_path(@doctor, @patient)
+
         
     end
 
     def edit
-        @patient = Patient.find(params[:id])
+        @doctor =Doctor.find(params[:doctor_id])
+        @patient= @doctor.patients.create(patient_params)  
     end
 
     def update
-        @patient = Patient.find(params[:id])
+
+
+        @doctor =Doctor.find(params[:doctor_id])
+        @patient = @doctor.patients.find(params[:id])
         @patient.update(patient_params)
-        redirect_to patient_path(@patient)
+        redirect_to doctor_patient_path(@doctor, @patient)
+        
     end
     
     def patient_params
+
         params.require(:patient).permit(:first_name, :last_name, :date, :diagnosis)
     end
 end

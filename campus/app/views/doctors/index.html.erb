@@ -1,0 +1,16 @@
+<%= link_to 'Back', url_for("http://localhost:3000/") %>
+
+<h1>Doctor List</h1>
+<% @doctors.each do |doc|%>
+    <h3>
+         
+        <ul>
+        <li><%= link_to " Dr.#{doc.name} ", doctor_path(doc)%> </li>
+        </ul>
+
+        
+    </h3>
+        
+    <% end %>
+
+    <%= link_to 'add new one', new_doctor_path %>

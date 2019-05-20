@@ -1,20 +1,8 @@
 
 # <h1>Add patient</h1>
 
-<%= form_with scope: :patient, url: patients_path, local: true do |f| %>
-    <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@patient.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @patient.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for @patient, url: {action: "create"} do |f| %>
+    
 
     <p>First name: <%= f.text_field :first_name %></p>
    <p> Last name: <%= f.text_field :last_name %></p>
