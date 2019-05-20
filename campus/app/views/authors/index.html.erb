@@ -1,9 +1,11 @@
+<%= link_to 'Back', url_for("http://localhost:3000/") %>
+
 <h1>Author List</h1>
 <% @authors.each do |author|%>
 <h3>
-     
-    <%= link_to "#{author.first_name} #{author.last_name}", author_path(author)%> 
-    
+     <ul>
+   <li> <%= link_to "#{author.first_name} #{author.last_name}", author_path(author)%> </li>
+    </ul>
 </h3>
 
 
