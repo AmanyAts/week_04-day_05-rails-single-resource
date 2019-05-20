@@ -1,7 +1,14 @@
 
 <h1>Add Your book</h1>
 <%= form_for @book, url: {action: "create"} do |f| %>
-    <%= f.text_field :title %>
-    
-    <%= f.submit :"save" %>
+    <p><%= f.label :title %>
+    <%= f.text_field :title %></p>
+
+    <p><%= f.label :print_date %>
+    <%= f.date_field :print_date %></p>
+
+    <p><%= f.label :original_language %>
+    <%= f.text_field :original_language %></p>
+      
+    <%= f.submit "save" %>
 <% end %>

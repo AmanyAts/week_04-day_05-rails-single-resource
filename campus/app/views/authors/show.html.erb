@@ -1,9 +1,13 @@
  <%=link_to "Back",authors_path()%>
-<h1>Hi</h1>
+
 <h3>
 <%= @author.first_name %>
-<%= @author.last_name %>
+<%= @author.last_name %> |
+<%= @author.nickname %>
 </h3>
+<h4><%= @author.hometown %></h4>
+<h4><%= @author.age %></h4>
+
 <%= link_to 'Delete', author_path(@author), method: :delete %>
 <%= "|" %>
 <%= link_to 'Edit', edit_author_path(@author)%>
